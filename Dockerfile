@@ -49,7 +49,7 @@ RUN apk add --no-cache curl ca-certificates && \
     addgroup -g ${GID} app && \
     adduser -D -u ${UID} -G app app
 
-COPY --from=builder --chown=app:app /go/bin/github-stars-notion-sync /usr/local/bin/github-stars-notion-sync
+COPY --from=builder --chown=app:app /go/bin/github-notion-stars-sync /usr/local/bin/github-stars-notion-sync
 
 ENTRYPOINT [ "/usr/local/bin/github-stars-notion-sync" ]
 

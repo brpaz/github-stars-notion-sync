@@ -3,6 +3,7 @@
 version: "3"
 
 vars:
+  PROJECT_NAME: github-stars-notion-sync
   PACKAGE: github.com/brpaz/github-stars-notion-sync
   BUILD_DIR: dist
   REPORTS_DIR: reports
