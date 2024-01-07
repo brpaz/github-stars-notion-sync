@@ -1,0 +1,6 @@
+{
+  "go.lintTool": "golangci-lint",
+  "go.formatTool": "gofumpt",
+  "go.useLanguageServer": true,
+  "go.testFlags": ["-v", "-count=1"],
+}

@@ -1,0 +1,94 @@
+# Taskfile is used to run common tasks when developing the application.
+# Check : https://taskfile.dev/usage/
+version: "3"
+
+vars:
+  PACKAGE: github.com/brpaz/github-stars-notion-sync
+  BUILD_DIR: dist
+  REPORTS_DIR: reports
+  VERSION: $(git describe --tags --always --dirty 2>/dev/null || echo "0.0.1-dev")
+  GIT_COMMIT: $(git rev-parse HEAD)
+  BUILD_DATE: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+dotenv:
+  - ".env"
+
+tasks:
+  default:
+    cmds:
+      - task -l
+
+  lint:
+    desc: Lints Go code using golangci-lint
+    cmds:
+      - golangci-lint run
+
+  format:
+    desc: Formats all code
+    cmds:
+      - gofumpt -l -w .
+
+  test:
+      desc: Runs tests
+      summary: Executes all package level tests
+      cmds:
+        - |
+          gotestsum \
+            --format="testname" \
+            --junitfile {{.REPORTS_DIR }}/unit-tests.xml \
+            --jsonfile {{.REPORTS_DIR }}/unit-tests.json \
+            -- -coverprofile={{ .REPORTS_DIR }}/cover.out \
+            -covermode=atomic \
+            ./internal/... ./cmd/...
+      deps:
+        - ensure-reports-dir
+
+  test-cover-report:
+    desc: Opens the test coverage report in the browser
+    cmds:
+      - go tool cover -html=reports/cover.out
+
+  test-report-html:
+    desc: Opens the test report in the browser
+    cmds:
+      - cat {{.REPORTS_DIR}}/unit-tests.json | go-test-report -o {{.REPORTS_DIR}}/test-report.html
+      - xdg-open reports/test-report.html
+
+  ensure-reports-dir:
+    desc: Ensures that the reports directory exists
+    cmds:
+      - mkdir -p {{ .REPORTS_DIR }}
+    internal: true
+
+  build:
+    desc: Builds the application locally
+    cmds:
+      - |-
+        go build -ldflags "\
+          -X main.version={{.VERSION}} \
+          -X main.gitCommit={{.GIT_COMMIT}} \
+          -X main.buildDate={{.BUILD_DATE}}" \
+          -o {{.BUILD_DIR}}/{{.PROJECT_NAME}} \
+          ./cmd/main.go
+    generates:
+      - "{{.BUILD_DIR}}/{{.PROJECT_NAME}}"
+
+  build-docker:
+    desc: Builds the application docker image
+    cmds:
+      - |
+        docker buildx build --load \
+        --build-arg VERSION={{ .VERSION }} \
+        --build-arg REVISION={{ .REVISION }} \
+        --build-arg BUILDTIME={{ .BUILDTIME }} \
+        -t {{ .PROJECT_NAME }}:dev .
+
+  snapshot:
+    desc: Creates a snapshot release
+    cmds:
+      - goreleaser --snapshot --skip=validate --skip=publish --clean
+
+  flake:
+    desc: Builds the application with nix flakes
+    cmds:
+      - nix build .#{{ .PROJECT_NAME }}

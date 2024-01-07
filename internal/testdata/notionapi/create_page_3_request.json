@@ -1,0 +1,55 @@
+{
+  "parent": {
+    "type": "database_id",
+    "database_id": "705baa92-0ea9-4a4f-bb97-4916d1cb45bc"
+  },
+  "properties": {
+    "Description": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Example Firefox add-ons created using the WebExtensions API"
+          }
+        }
+      ]
+    },
+    "Language": {
+      "select": {
+        "name": "JavaScript"
+      }
+    },
+    "Name": {
+      "title": [
+        {
+          "type": "text",
+          "text": {
+            "content": "webextensions-examples"
+          }
+        }
+      ]
+    },
+    "Repository ID": {
+      "number": 40733543
+    },
+    "Repository URL": {
+      "url": "https://github.com/mdn/webextensions-examples"
+    },
+    "Topics": {
+      "multi_select": [
+        {
+          "name": "browser"
+        },
+        {
+          "name": "mdn"
+        },
+        {
+          "name": "webextensions"
+        },
+        {
+          "name": "webextensions-apis"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "parent": {
+    "type": "database_id",
+    "database_id": "705baa92-0ea9-4a4f-bb97-4916d1cb45bc"
+  },
+  "properties": {
+    "Description": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Vite plugin for developing Chrome/Web Extensions"
+          }
+        }
+      ]
+    },
+    "Language": {
+      "select": {
+        "name": "TypeScript"
+      }
+    },
+    "Name": {
+      "title": [
+        {
+          "type": "text",
+          "text": {
+            "content": "vite-plugin-web-extension"
+          }
+        }
+      ]
+    },
+    "Repository ID": {
+      "number": 423249811
+    },
+    "Repository URL": {
+      "url": "https://github.com/aklinker1/vite-plugin-web-extension"
+    },
+    "Topics": {
+      "multi_select": [
+        {
+          "name": "extension"
+        },
+        {
+          "name": "vite"
+        }
+      ]
+    }
+  }
+}

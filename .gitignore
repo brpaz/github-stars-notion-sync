@@ -1,0 +1,53 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.s
+
+# Go workspace file
+go.work
+
+# Test binary
+test.out
+
+# Dependency directories
+vendor/
+
+# Output files
+*.log
+
+# OS-specific files
+Thumbs.db
+.DS_Store
+
+# Devbox
+.devbox
+
+# Envrionment files
+.env
+
+# Build Artifacts
+.build
+dist
+reports
+coverage
+
+# IDE files
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/launch.json
+

@@ -1,0 +1,7 @@
+{
+  "object": "error",
+  "status": 404,
+  "code": "object_not_found",
+  "message": "Could not find database with ID: 7099f06c-95ef-46a2-a47d-672cf8e4a8a4. Make sure the relevant pages and databases are shared with your integration.",
+  "request_id": "1d2534d4-201d-4888-ae64-391df5acf5bb"
+}

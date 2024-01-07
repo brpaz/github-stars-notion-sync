@@ -1,0 +1,8 @@
+{
+	"recommendations": [
+		"golang.Go",
+    "mkhl.direnv",
+    "task.vscode-task",
+    "jetpack-io.devbox"
+	]
+}

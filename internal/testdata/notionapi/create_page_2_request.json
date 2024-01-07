@@ -1,0 +1,70 @@
+{
+  "parent": {
+    "type": "database_id",
+    "database_id": "705baa92-0ea9-4a4f-bb97-4916d1cb45bc"
+  },
+  "properties": {
+    "Description": {
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "AdGuard Home client created with Flutter"
+          }
+        }
+      ]
+    },
+    "Language": {
+      "select": {
+        "name": "Dart"
+      }
+    },
+    "Name": {
+      "title": [
+        {
+          "type": "text",
+          "text": {
+            "content": "adguard-home-manager"
+          }
+        }
+      ]
+    },
+    "Repository ID": {
+      "number": 541560413
+    },
+    "Repository URL": {
+      "url": "https://github.com/JGeek00/adguard-home-manager"
+    },
+    "Topics": {
+      "multi_select": [
+        {
+          "name": "adblocker"
+        },
+        {
+          "name": "adguard"
+        },
+        {
+          "name": "adguardhome"
+        },
+        {
+          "name": "android"
+        },
+        {
+          "name": "dnsproxy"
+        },
+        {
+          "name": "flutter"
+        },
+        {
+          "name": "linux"
+        },
+        {
+          "name": "macos"
+        },
+        {
+          "name": "windows"
+        }
+      ]
+    }
+  }
+}

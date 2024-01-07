@@ -1,0 +1,24 @@
+{
+  "packages": [
+    "go_1_21@latest",
+    "golangci-lint@1.55.2",
+    "go-task@3.32.0",
+    "goreleaser@1.22.1",
+    "lefthook@1.5.3",
+    "gotestsum@1.10.1",
+    "gofumpt@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      "export PS1='📦 devbox> '",
+      "mkdir -p reports",
+      "lefthook install",
+      "go mod download"
+    ],
+    "scripts": {
+      "test": [
+        "echo \"Error: no test specified\" && exit 1"
+      ]
+    }
+  }
+}

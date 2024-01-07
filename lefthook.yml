@@ -1,0 +1,12 @@
+# Configuation file for Lefthook
+# Refer for explanation to following link:
+# https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
+pre-commit:
+  parallel: true
+  commands:
+    lint-go:
+      glob: "**/*.go"
+      run: golangci-lint run --new-from-rev HEAD --fix
+    format:
+      glob: "**/*.go"
+      run: gofumpt -l -w {all_files}
