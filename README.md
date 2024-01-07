@@ -94,7 +94,7 @@ You will also need a GitHub access token, in order to retrieve your starred repo
 To sync your GitHub starred repos with your Notion database, run the following command:
 
 ```shell
-github-stars-notion-sync sync --github-token=<token> --notation-token=<notion-token> --notion-database-id=<database-id>
+github-stars-notion-sync sync --github-token=<token> --notion-token=<notion-token> --notion-database-id=<database-id>
 ```
 
 Instead of using flags to set the command options, you can also use envrionment variables.
