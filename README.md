@@ -75,7 +75,7 @@ Next you need to create a Notion API Token and give it access to your database.
 
 1. **Create a Notion integration:** Go to https://www.notion.so/my-integrations and create a new integration. Give it a name like "GitHub stars Syncer" and associate in to the workspace where your database is. Make sure to save the generated token in a Safe place.
 2. **Enable integration for your database**: Open your Notion database page, and on the `...` menu at top right, click on "Connections" -> "Add connection" and select the integration you created on 1. This will ensure the integration have access to your database.
-3. **Find your database id** - Open your database page in Notion. You should see in your browser an url similar to `https://www.notion.com/fer6ff3d5fcs3dff1d2134349192cc?v=4rf43545..`. Grab the first id. This is your database id and you will need it when running the command.
+3. **Find your database id** - Open your database page in Notion. You should see in your browser an url similar to `https://www.notion.com/fer6ff3d5fcs3dff1d2134349192cc?v=4rf43545..`. Grab the first id. This is your database id. You will need to convert it to UUID format, by splitting the characters with `-`, in the pattern `8-4-4-12`. This example id would be `550e8400-e29b-41d4-a716-446655440000` as uuid.
 
 ### Create a GitHub access token.
 
