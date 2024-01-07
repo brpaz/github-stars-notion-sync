@@ -89,7 +89,6 @@ func (c *databasePages) ContainsRepo(repoID int64) bool {
 
 // buildCreatePageRequestFromRepo builds a notion page create request from a starred repo object
 func buildCreatePageRequestFromRepo(databaseID notionapi.DatabaseID, repo *starredRepo) *notionapi.PageCreateRequest {
-
 	topicsProperty := make([]notionapi.Option, len(repo.Topics))
 
 	for i, topic := range repo.Topics {

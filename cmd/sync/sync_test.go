@@ -38,7 +38,6 @@ func TestNewCommand(t *testing.T) {
 }
 
 func TestRun_WithMissingArgs_ReturnsError(t *testing.T) {
-
 	testCases := []struct {
 		name     string
 		args     []string

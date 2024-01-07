@@ -44,6 +44,7 @@ FROM alpine:3.19 as production
 ARG UID=1000
 ARG GID=1000
 
+# hadolint ignore=DL3018
 RUN apk add --no-cache curl ca-certificates && \
     addgroup -g ${GID} app && \
     adduser -D -u ${UID} -G app app

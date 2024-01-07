@@ -48,12 +48,10 @@ func New(githubClient *github.Client, notionClient *notionapi.Client) (*Syncer, 
 // 2. Get all the pages from the notion database
 // 3. Compare the two lists and create/delete the notion pages accordingly
 func (s *Syncer) SyncStars(ctx context.Context, notionDatabaseID string) error {
-
 	log.Info(ctx, "starting syncer")
 
 	databaseID := notionapi.DatabaseID(notionDatabaseID)
 	notionDatabase, err := s.notion.Database.Get(ctx, databaseID)
-
 	if err != nil {
 		return fmt.Errorf("error getting notion database: %w", err)
 	}
@@ -66,7 +64,6 @@ func (s *Syncer) SyncStars(ctx context.Context, notionDatabaseID string) error {
 
 	log.Info(ctx, "fetching pages from notion database. Depending on the size of the database, this might take a while.")
 	notionPages, err := s.getPagesFromNotionDatabase(ctx, databaseID)
-
 	if err != nil {
 		return fmt.Errorf("error getting notion pages: %w", err)
 	}
@@ -75,7 +72,6 @@ func (s *Syncer) SyncStars(ctx context.Context, notionDatabaseID string) error {
 
 	log.Info(ctx, "fetching starred repos from github. Depending on the number of starred repos, this might take a while.")
 	starredRepos, err := s.fetchGitHubStarredRepos(ctx)
-
 	if err != nil {
 		return fmt.Errorf("error getting starred repos: %w", err)
 	}
@@ -105,7 +101,6 @@ func (s *Syncer) validateDatabaseFields(database *notionapi.Database) error {
 
 // fetchGitHubStarredRepos returns a collection of starred repos from github
 func (s *Syncer) fetchGitHubStarredRepos(ctx context.Context) (*starredRepoCollection, error) {
-
 	starredRepos := newStarredRepoCollection()
 
 	opt := &github.ActivityListStarredOptions{
@@ -114,7 +109,6 @@ func (s *Syncer) fetchGitHubStarredRepos(ctx context.Context) (*starredRepoColle
 
 	for {
 		repos, resp, err := s.github.Activity.ListStarred(ctx, "", opt)
-
 		if err != nil {
 			return starredRepos, err
 		}
@@ -151,7 +145,6 @@ func (s *Syncer) getPagesFromNotionDatabase(ctx context.Context, databaseID noti
 			PageSize:    notionPagesPerPage,
 			StartCursor: cursor,
 		})
-
 		if err != nil {
 			return pages, err
 		}
@@ -179,7 +172,6 @@ func (s *Syncer) getPagesFromNotionDatabase(ctx context.Context, databaseID noti
 
 // doSync compares the notion pages with the starred repos and creates/deletes the notion pages accordingly
 func (s *Syncer) doSync(ctx context.Context, databaseID notionapi.DatabaseID, notionPages *databasePages, starredRepos *starredRepoCollection) error {
-
 	pagesToCreate := make([]starredRepo, 0)
 	pagesToDelete := make([]notionPage, 0)
 

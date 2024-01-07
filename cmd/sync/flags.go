@@ -34,10 +34,8 @@ var requiredFlags = map[string]error{
 
 // validateRequiredFlags validates the flags passed to the sync command
 func validateRequiredFlags(flags *pflag.FlagSet) error {
-
 	for flagName, flagErr := range requiredFlags {
 		flagValue, err := flags.GetString(flagName)
-
 		if err != nil {
 			return err
 		}
@@ -52,7 +50,6 @@ func validateRequiredFlags(flags *pflag.FlagSet) error {
 // parseFlags parses the flags received in the command and construct an "Options" struct with their values
 func parseFlags(flags *pflag.FlagSet) (Flags, error) {
 	gitHubToken, err := flags.GetString(FlagGitHubToken)
-
 	if err != nil {
 		return Flags{}, err
 	}

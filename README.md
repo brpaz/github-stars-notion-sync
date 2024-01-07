@@ -157,7 +157,7 @@ Distributed under the MIT License. See [LICENSE](LICENSE.md) file for details.
 [contributors-url]: https://github.com/brpaz/github-stars-notion-sync/graphs/contributors
 [license-shield]: https://img.shields.io/github/license/brpaz/github-stars-notion-sync.svg?style=for-the-badge
 [license-url]: https://github.com/brpaz/github-stars-notion-sync/blob/main/LICENSE.md
-[github-workflow-shield]: https://img.shields.io/github/actions/workflow/status/brpaz/github-stars-notion-sync/CI.yml?style=for-the-badge
+[github-workflow-shield]: https://img.shields.io/github/actions/workflow/status/brpaz/github-stars-notion-sync/ci.yml?style=for-the-badge
 [github-workflow-url]: https://github.com/brpaz/github-stars-notion-sync/actions
 [gomod]: https://github.com/github-stars-notion-sync
 [gomod-url]: https://img.shields.io/github/go-mod/go-version/brpaz/github-stars-notion-sync

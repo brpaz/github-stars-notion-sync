@@ -11,7 +11,6 @@ import (
 )
 
 func TestNewVersionCmd(t *testing.T) {
-
 	t.Parallel()
 
 	t.Run("Prints version information", func(t *testing.T) {

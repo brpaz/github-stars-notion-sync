@@ -47,13 +47,11 @@ func run(cmd *cobra.Command, syncerInitializer SyncerInitializer) error {
 
 	ctx := cmd.Context()
 	flags, err := parseFlags(cmd.Flags())
-
 	if err != nil {
 		return err
 	}
 
 	syncerSvc, err := syncerInitializer(flags)
-
 	if err != nil {
 		return err
 	}

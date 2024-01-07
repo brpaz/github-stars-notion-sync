@@ -41,7 +41,6 @@ func loadFixture(t *testing.T, path string) []byte {
 }
 
 func TestSyncer_New(t *testing.T) {
-
 	t.Parallel()
 
 	t.Run("should return error if github client is nil", func(t *testing.T) {
@@ -70,12 +69,10 @@ func TestSyncer_New(t *testing.T) {
 }
 
 func TestSyncer_SyncStars(t *testing.T) {
-
 	syncerSvc, err := syncer.New(github.NewClient(nil), notionapi.NewClient(""))
 	require.NoError(t, err)
 
 	t.Run("should return error if notion database does not exist", func(t *testing.T) {
-
 		mockDatabaseID := "7099f06c-95ef-46a2-a47d-672cf8e4a8a4"
 		notionAPIResponse := loadFixture(t, path.Join("notionapi", "database_not_found_response.json"))
 		defer gock.Off()
@@ -116,7 +113,6 @@ func TestSyncer_SyncStars(t *testing.T) {
 	* - 3 page that exists in github but not in the database (will be created)
 	 */
 	t.Run("successfully syncs stars", func(t *testing.T) {
-
 		notionGetDatabaseResponse := loadFixture(t, path.Join("notionapi", "get_database_response.json"))
 		notionDatabasePagesResponse := loadFixture(t, path.Join("notionapi", "get_database_pages_response.json"))
 		githubStarredReposResponse := loadFixture(t, path.Join("githubapi", "get_starred_repos_response.json"))
